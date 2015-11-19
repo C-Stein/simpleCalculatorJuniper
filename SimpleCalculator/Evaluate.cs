@@ -18,6 +18,7 @@ namespace SimpleCalculator
         public int doMath()
         {
             Parse expression = new Parse(inputString);
+            expression.setOperatorIndex();
             string mathOperation = expression.mathOperation();
             if ( mathOperation == "+")
             {
@@ -33,7 +34,7 @@ namespace SimpleCalculator
                 return expression.firstNum() % expression.secondNum();
             } else if (mathOperation == "/")
             {
-                return 2;
+                return expression.firstNum() / expression.secondNum();
             } else
             {
                 throw new ArgumentException();
