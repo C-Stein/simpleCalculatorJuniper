@@ -15,6 +15,13 @@ namespace SimpleCalculatorTests
         }
 
         [TestMethod]
+        public void EvaluateCanAddWithNegativeNumbers()
+        {
+            Evaluate twoPlusThree = new Evaluate("-2+-3");
+            Assert.AreEqual(-5, twoPlusThree.doMath());
+        }
+
+        [TestMethod]
         public void EvaluateCanSubtract()
         {
             Evaluate twoPlusThree = new Evaluate("2 - 3");

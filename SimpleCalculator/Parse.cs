@@ -14,6 +14,7 @@ namespace SimpleCalculator
         public string operation;
         int operatorIndex;
         public string stringFirst;
+        Constant currentConstant = new Constant();
 
 
         public Parse (string input)
@@ -85,7 +86,13 @@ namespace SimpleCalculator
             }
             else
             {
-                throw new ArgumentException();
+                try {
+                    return currentConstant.getNum(stringSecond);
+                } catch
+                {
+                    throw new ArgumentException();
+                }
+                
             }
 
         }
