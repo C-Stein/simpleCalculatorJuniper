@@ -15,6 +15,11 @@ namespace SimpleCalculator
             inputString = input;
         }
 
+        public string Last()
+        {
+            return inputString;
+        }
+
         public int doMath()
         {
             Parse expression = new Parse(inputString);

@@ -10,9 +10,7 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            Parse twoPlusTwo = new Parse("2+2");
-            twoPlusTwo.firstNum();
-            twoPlusTwo.secondNum();
+           
         }
     }
 }
