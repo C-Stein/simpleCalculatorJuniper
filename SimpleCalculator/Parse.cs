@@ -17,11 +17,23 @@ namespace SimpleCalculator
         Constant currentConstant = new Constant();
 
 
-        public Parse (string input)
+        public Parse (string input, string letter, int num)
+        {
+            inputString = input;
+            string[] pieces = inputString.Split(' ');
+            currentConstant.addConst(letter, num);
+
+        }
+        public Parse(string input)
         {
             inputString = input;
             string[] pieces = inputString.Split(' ');
 
+        }
+
+        public void addConst(string letter, int num)
+        {
+            currentConstant.addConst(letter, num);
         }
 
         public void setOperatorIndex()
@@ -63,14 +75,28 @@ namespace SimpleCalculator
             bool parsedFirst = false;
 
             stringFirst = inputString.Substring(0, operatorIndex);
+            string stringFirstNoSpace = stringFirst.Replace(" ", String.Empty);
             parsedFirst = int.TryParse(stringFirst, out first);
             if (parsedFirst)
             {
                 return first;
-            } else
-            {
-                throw new ArgumentException();
             }
+            else
+            {
+                try
+                {
+                    return currentConstant.getNum(stringFirstNoSpace);
+                }
+                catch
+                {
+                    throw new ArgumentException("That's not a number or a valid variable before the operator");
+                }
+            }
+        }
+
+        public string StringSecond()
+        {
+            return inputString.Substring(operatorIndex + 1, (inputString.Length - stringFirst.Length - 1));
         }
 
         public int secondNum()
@@ -79,6 +105,7 @@ namespace SimpleCalculator
             bool parsedSecond = false;
 
             stringSecond = inputString.Substring(operatorIndex + 1, (inputString.Length - stringFirst.Length -1));
+            string stringSecondNoSpace = stringSecond.Replace(" ", String.Empty);
             parsedSecond = int.TryParse(stringSecond, out second);
             if (parsedSecond)
             {
@@ -87,10 +114,10 @@ namespace SimpleCalculator
             else
             {
                 try {
-                    return currentConstant.getNum(stringSecond);
+                    return currentConstant.getNum(stringSecondNoSpace);
                 } catch
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("That's not a number or a valid variable after the operator");
                 }
                 
             }

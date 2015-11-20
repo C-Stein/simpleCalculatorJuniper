@@ -61,12 +61,25 @@ namespace SimpleCalculatorTests
             
         }
 
-        //[TestMethod]
-        //public void ParseGetLength()
-        //{
-        //    Parse twoPlusThree = new Parse("2 + 3");
-        //    twoPlusThree.setOperatorIndex();
-        //    Assert.AreEqual(3, twoPlusThree.getLength());
-        //}
+        [TestMethod]
+        public void ParseAllowsConstantsFirst()
+        {
+            Parse aplus3 = new Parse("a + 3");
+            aplus3.addConst("a", 5);
+            aplus3.setOperatorIndex();
+            Assert.AreEqual(5, aplus3.firstNum());
+
+        }
+
+        [TestMethod]
+        public void ParseAllowsConstantsSecond()
+        {
+            Parse aplus3 = new Parse("3 + a");
+            aplus3.addConst("a", 5);
+            aplus3.setOperatorIndex();
+            aplus3.firstNum();
+            Assert.AreEqual(5, aplus3.secondNum());
+
+        }
     }
 }
