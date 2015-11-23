@@ -13,6 +13,11 @@ namespace SimpleCalculator
         public string lastq;
         public int last;
 
+        public Stack()
+        {
+
+        }
+
         public Stack(Evaluate input)
         {
             expression = input;

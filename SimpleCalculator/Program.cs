@@ -11,10 +11,12 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             int count = 0;
+            Stack thisStack = new Stack();
+            
 
             while (true)
             {
-                Console.Write("[{0}]", count);
+                Console.Write("[{0}]> ", count);
                 string input = Console.ReadLine();
                 if (input.ToLower() == "exit" || input.ToLower() == "quit")
                 {
@@ -34,7 +36,7 @@ namespace SimpleCalculator
                 {
                     Evaluate expression = new Evaluate(input);
                     int answer = expression.doMath();
-                    Console.WriteLine(answer);
+                    Console.WriteLine("   = {0}", answer);
                     count++;
 
                 }

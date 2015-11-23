@@ -79,7 +79,6 @@ namespace SimpleCalculatorTests
             aplus3.setOperatorIndex();
             aplus3.firstNum();
             Assert.AreEqual(5, aplus3.secondNum());
-
         }
     }
 }
