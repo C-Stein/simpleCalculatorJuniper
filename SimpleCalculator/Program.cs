@@ -10,10 +10,25 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
-            Parse aplus3 = new Parse("3 + a");
-            aplus3.addConst("a", 5);
-            aplus3.setOperatorIndex();
-            aplus3.StringSecond();
+            int count = 0;
+
+            while (true)
+            {
+                Console.Write("[{0}]", count);
+                string input = Console.ReadLine();
+                if (input.ToLower() == "exit" || input.ToLower() == "quit")
+                {
+                    break;
+                }
+                else
+                {
+                    Evaluate expression = new Evaluate(input);
+                    int answer = expression.doMath();
+                    Console.WriteLine(answer);
+                    count++;
+
+                }
+            }
         }
     }
 }
