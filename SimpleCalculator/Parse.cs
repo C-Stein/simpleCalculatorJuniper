@@ -63,6 +63,11 @@ namespace SimpleCalculator
                 operatorIndex = inputString.IndexOf("%");
                 operation = "%";
             }
+            else if (inputString.IndexOf("=") > 0)
+            {
+                operatorIndex = inputString.IndexOf("=");
+                operation = "=";
+            }
             else
             {
                 throw new ArgumentException();
@@ -92,6 +97,12 @@ namespace SimpleCalculator
                     throw new ArgumentException("That's not a number or a valid variable before the operator");
                 }
             }
+        }
+
+        public string StringFirst()
+        {
+            stringFirst = inputString.Substring(0, operatorIndex);
+            return stringFirst;
         }
 
         public string StringSecond()

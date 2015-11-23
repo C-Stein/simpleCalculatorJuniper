@@ -20,6 +20,16 @@ namespace SimpleCalculator
                 {
                     break;
                 }
+                else if (input.IndexOf("=")> -1)
+                {
+                    //set variable
+                    Parse addConstant = new Parse(input);
+                    addConstant.setOperatorIndex();
+                    addConstant.addConst(addConstant.StringFirst(), addConstant.secondNum());
+                    // = saved 'x' as '3'
+                    Console.WriteLine("= saved '" + addConstant.StringFirst() + "' as '" + addConstant.secondNum() + "'");
+
+                }
                 else
                 {
                     Evaluate expression = new Evaluate(input);
