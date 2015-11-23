@@ -12,6 +12,7 @@ namespace SimpleCalculator
         public Evaluate expression;
         public string lastq;
         public int last;
+        public Constant currentConstant = new Constant();
 
         public Stack()
         {
@@ -33,6 +34,11 @@ namespace SimpleCalculator
         {
             last = expression.doMath();
             return last;
+        }
+
+        public void addConst(string letter, int num)
+        {
+            currentConstant.addConst(letter, num);
         }
 
 

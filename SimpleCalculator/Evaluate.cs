@@ -9,10 +9,13 @@ namespace SimpleCalculator
     public class Evaluate
     {
         public string inputString;
+        public Parse Expression { get; set; }
+
 
         public Evaluate(string input)
         {
             inputString = input;
+            Expression = new Parse(inputString);
         }
 
         public string Last()
@@ -22,24 +25,24 @@ namespace SimpleCalculator
 
         public int doMath()
         {
-            Parse expression = new Parse(inputString);
-            expression.setOperatorIndex();
-            string mathOperation = expression.mathOperation();
+            
+            Expression.setOperatorIndex();
+            string mathOperation = Expression.mathOperation();
             if ( mathOperation == "+")
             {
-                return expression.firstNum() + expression.secondNum();
+                return Expression.firstNum() + Expression.secondNum();
             } else if ( mathOperation == "-")
             {
-                return expression.firstNum() - expression.secondNum();
+                return Expression.firstNum() - Expression.secondNum();
             } else if (mathOperation == "*")
             {
-                return expression.firstNum() * expression.secondNum();
+                return Expression.firstNum() * Expression.secondNum();
             } else if (mathOperation == "%")
             {
-                return expression.firstNum() % expression.secondNum();
+                return Expression.firstNum() % Expression.secondNum();
             } else if (mathOperation == "/")
             {
-                return expression.firstNum() / expression.secondNum();
+                return Expression.firstNum() / Expression.secondNum();
             } else
             {
                 throw new ArgumentException();

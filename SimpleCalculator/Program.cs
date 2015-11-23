@@ -11,13 +11,13 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             int count = 0;
-            Stack thisStack = new Stack();
             
 
             while (true)
             {
                 Console.Write("[{0}]> ", count);
                 string input = Console.ReadLine();
+                Evaluate expression = new Evaluate(input);
                 if (input.ToLower() == "exit" || input.ToLower() == "quit")
                 {
                     break;
@@ -25,7 +25,8 @@ namespace SimpleCalculator
                 else if (input.IndexOf("=")> -1)
                 {
                     //set variable
-                    Parse addConstant = new Parse(input);
+
+                    Parse addConstant = expression.Expression;
                     addConstant.setOperatorIndex();
                     addConstant.addConst(addConstant.StringFirst(), addConstant.secondNum());
                     // = saved 'x' as '3'
@@ -34,7 +35,6 @@ namespace SimpleCalculator
                 }
                 else
                 {
-                    Evaluate expression = new Evaluate(input);
                     int answer = expression.doMath();
                     Console.WriteLine("   = {0}", answer);
                     count++;
