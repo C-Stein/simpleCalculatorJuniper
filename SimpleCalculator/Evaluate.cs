@@ -12,6 +12,13 @@ namespace SimpleCalculator
         public Parse Expression { get; set; }
 
 
+
+        public Evaluate(string input, Constant currentConstant)
+        {
+            inputString = input;
+            Expression = new Parse(inputString, currentConstant);
+        }
+
         public Evaluate(string input)
         {
             inputString = input;

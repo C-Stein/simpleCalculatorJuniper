@@ -64,7 +64,8 @@ namespace SimpleCalculatorTests
         [TestMethod]
         public void ParseAllowsConstantsFirst()
         {
-            Parse aplus3 = new Parse("a + 3");
+            Constant newConstant = new Constant();
+            Parse aplus3 = new Parse("a + 3", newConstant);
             aplus3.addConst("a", 5);
             aplus3.setOperatorIndex();
             Assert.AreEqual(5, aplus3.firstNum());
@@ -74,7 +75,8 @@ namespace SimpleCalculatorTests
         [TestMethod]
         public void ParseAllowsConstantsSecond()
         {
-            Parse aplus3 = new Parse("3 + a");
+            Constant newConstant = new Constant();
+            Parse aplus3 = new Parse("3 + a", newConstant);
             aplus3.addConst("a", 5);
             aplus3.setOperatorIndex();
             aplus3.firstNum();

@@ -52,9 +52,9 @@ namespace SimpleCalculatorTests
         [TestMethod]
         public void ConstantCanAdd()
         {
-            Evaluate twoPlusThree = new Evaluate("a + 3");
             Constant newConstant = new Constant();
             newConstant.addConst("a", 2);
+            Evaluate twoPlusThree = new Evaluate("a + 3", newConstant);
             Assert.AreEqual(5, twoPlusThree.doMath());
         }
     }

@@ -14,7 +14,7 @@ namespace SimpleCalculator
         public string operation;
         int operatorIndex;
         public string stringFirst;
-        Constant currentConstant = new Constant();
+        Constant currentConstant;
 
 
         public Parse (string input, string letter, int num)
@@ -28,6 +28,14 @@ namespace SimpleCalculator
         {
             inputString = input;
             string[] pieces = inputString.Split(' ');
+        }
+
+
+        public Parse(string input, Constant thisConstant)
+        {
+            inputString = input;
+            string[] pieces = inputString.Split(' ');
+            currentConstant = thisConstant;
 
         }
 
