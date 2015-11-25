@@ -21,14 +21,17 @@ namespace SimpleCalculator
             else
             {
                 constList.Add(letter, number);
+                Console.WriteLine("added, totally added");
             }
         }
 
         public int getNum(string letter)
         {
             letter = letter.ToLower();
-            int answer;
-            if (constList.TryGetValue(letter, out answer))
+            int answer = 1;
+            bool itWorked = constList.TryGetValue(letter, out answer);
+            var y = answer;
+            if (itWorked)
             {
                 return answer;
             } else

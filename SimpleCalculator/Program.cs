@@ -11,14 +11,15 @@ namespace SimpleCalculator
         static void Main(string[] args)
         {
             int count = 0;
-            Constant currentConstant = new Constant(); 
+            Constant currentConstant = new Constant();
+            Evaluate expression; 
             
 
             while (true)
             {
                 Console.Write("[{0}]> ", count);
                 string input = Console.ReadLine();
-                Evaluate expression = new Evaluate(input, currentConstant);
+                expression = new Evaluate(input, currentConstant);
                 if (input.ToLower() == "exit" || input.ToLower() == "quit")
                 {
                     break;
@@ -29,9 +30,10 @@ namespace SimpleCalculator
 
                     Parse addConstant = new Parse(input, currentConstant);
                     addConstant.setOperatorIndex();
-                    addConstant.addConst(addConstant.StringFirst(), addConstant.secondNum());
+                    currentConstant.addConst(addConstant.StringFirst(), addConstant.secondNum());
                     // = saved 'x' as '3'
                     Console.WriteLine("= saved '" + addConstant.StringFirst() + "' as '" + addConstant.secondNum() + "'");
+                    Console.WriteLine(currentConstant.getNum("a"));
 
                 }
                 else
