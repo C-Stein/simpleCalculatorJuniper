@@ -33,7 +33,6 @@ namespace SimpleCalculator
                     currentConstant.addConst(addConstant.StringFirst(), addConstant.secondNum());
                     // = saved 'x' as '3'
                     Console.WriteLine("= saved '" + addConstant.StringFirst() + "' as '" + addConstant.secondNum() + "'");
-                    Console.WriteLine(currentConstant.getNum("a"));
 
                 }
                 else

@@ -12,7 +12,7 @@ namespace SimpleCalculator
         
         public void addConst(string letter, int number)
         {
-            letter = letter.ToLower();
+            letter = letter.ToLower().Replace(" ", String.Empty);
 
             if (constList.ContainsKey(letter))
             {
